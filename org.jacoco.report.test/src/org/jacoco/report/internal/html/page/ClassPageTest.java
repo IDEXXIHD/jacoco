@@ -47,7 +47,7 @@ public class ClassPageTest extends PageTestBase {
 		page = new ClassPage(node, null, null, rootFolder, context);
 		page.render();
 
-		final Document doc = support.parse(output.getFile("Foo.html"));
+		final Document doc = support.parse(output.getFile("org.jacoco.example.Foo.html"));
 		assertEquals("el_method", support.findStr(doc,
 				"/html/body/table[1]/tbody/tr[1]/td[1]/span/@class"));
 		assertEquals("a()", support.findStr(doc,
@@ -61,7 +61,7 @@ public class ClassPageTest extends PageTestBase {
 	@Test
 	public void testGetFileName() throws IOException {
 		page = new ClassPage(node, null, null, rootFolder, context);
-		assertEquals("Foo.html", page.getFileName());
+		assertEquals("org.jacoco.example.Foo.html", page.getFileName());
 	}
 
 	@Test
@@ -75,7 +75,7 @@ public class ClassPageTest extends PageTestBase {
 	@Test
 	public void testGetLinkLabel() throws IOException {
 		page = new ClassPage(node, null, null, rootFolder, context);
-		assertEquals("Foo", page.getLinkLabel());
+		assertEquals("org.jacoco.example.Foo", page.getLinkLabel());
 	}
 
 }

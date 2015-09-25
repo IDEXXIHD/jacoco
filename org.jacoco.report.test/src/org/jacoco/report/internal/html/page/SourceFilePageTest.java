@@ -49,7 +49,7 @@ public class SourceFilePageTest extends PageTestBase {
 		page.render();
 
 		final Document result = support.parse(output
-				.getFile("SourceFilePageTest.java.html"));
+				.getFile("org.jacoco.report.internal.html.SourceFilePageTest.java.html"));
 
 		// additional style sheet
 		assertEquals(".resources/report.css", support.findStr(result,

@@ -67,15 +67,13 @@ public class ClassPage extends TablePage<IClassCoverage> {
 
 	@Override
 	protected String getFileName() {
-		final String vmname = getNode().getName();
-		final int pos = vmname.lastIndexOf('/');
-		final String shortname = pos == -1 ? vmname : vmname.substring(pos + 1);
-		return shortname + ".html";
+		// Generate full name for class coverage file
+		return getNode().getName().replace('/', '.') + ".html";
 	}
 
 	@Override
 	public String getLinkLabel() {
-		return context.getLanguageNames().getClassName(getNode().getName(),
+		return context.getLanguageNames().getClassName(getNode().getName().replace('/', '.'), // add package name
 				getNode().getSignature(), getNode().getSuperName(),
 				getNode().getInterfaceNames());
 	}

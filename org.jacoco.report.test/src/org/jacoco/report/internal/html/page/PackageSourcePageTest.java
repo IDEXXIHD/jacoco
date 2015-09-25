@@ -114,8 +114,8 @@ public class PackageSourcePageTest extends PageTestBase {
 				context, packagePageLink);
 		page.render();
 
-		assertNotNull(page.getSourceFilePage("Src1.java"));
-		assertNull(page.getSourceFilePage("Src2.java"));
+		assertNotNull(page.getSourceFilePage("org.jacoco.example.Src1.java"));
+		assertNull(page.getSourceFilePage("org.jacoco.example.Src2.java"));
 	}
 
 }

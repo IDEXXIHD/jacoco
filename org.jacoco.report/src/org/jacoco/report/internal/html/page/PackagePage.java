@@ -33,7 +33,7 @@ public class PackagePage extends TablePage<IPackageCoverage> {
 
 	/**
 	 * Creates a new visitor in the given context.
-	 * 
+	 *
 	 * @param node
 	 *            coverage data for this package
 	 * @param parent
@@ -65,8 +65,10 @@ public class PackagePage extends TablePage<IPackageCoverage> {
 
 	private void renderClasses() throws IOException {
 		for (final IClassCoverage c : getNode().getClasses()) {
+			final String packagename = c.getPackageName();
+			final String sourceFileKey = packagename.replace('/', '.') + "." + c.getSourceFileName(); // source file key
 			final ILinkable sourceFilePage = packageSourcePage
-					.getSourceFilePage(c.getSourceFileName());
+					.getSourceFilePage(sourceFileKey);
 			final ClassPage page = new ClassPage(c, this, sourceFilePage,
 					folder, context);
 			page.render();

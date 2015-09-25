@@ -109,7 +109,8 @@
               <rules>
                 <requireFilesSize>
                   <!-- Max size of package increased due subpackage classes included -->
-                  <maxsize>4400000</maxsize>
+                  <!-- Report files names generation updated -->
+                  <maxsize>5660000</maxsize>
                   <minsize>2500000</minsize>
                   <files>
                     <file>${project.build.directory}/jacoco-${qualified.bundle.version}.zip</file>

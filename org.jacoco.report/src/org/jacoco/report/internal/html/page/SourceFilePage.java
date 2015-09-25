@@ -16,6 +16,7 @@ import static java.lang.String.format;
 import java.io.IOException;
 import java.io.Reader;
 
+import org.jacoco.core.analysis.ISourceFileCoverage;
 import org.jacoco.core.analysis.ISourceNode;
 import org.jacoco.report.internal.ReportOutputFolder;
 import org.jacoco.report.internal.html.HTMLElement;
@@ -85,6 +86,11 @@ public class SourceFilePage extends NodePage<ISourceNode> {
 
 	@Override
 	protected String getFileName() {
+		// Generate full name for class source file
+		if (getNode() instanceof ISourceFileCoverage){
+			ISourceFileCoverage node = (ISourceFileCoverage) getNode();
+			return node.getPackageName().replace('/', '.') + "." + node.getName() + ".html";
+		}
 		return getNode().getName() + ".html";
 	}
 

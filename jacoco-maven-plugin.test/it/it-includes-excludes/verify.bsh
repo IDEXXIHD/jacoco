@@ -19,13 +19,13 @@ if ( buildLog.indexOf( agentOptions ) < 0 ) {
     throw new RuntimeException("Include/Exclude was not configured correct" );
 }
 
-File databaseUtilReportFile = new File( basedir, "target/site/jacoco/org.project/DatabaseUtil.html" );
+File databaseUtilReportFile = new File( basedir, "target/site/jacoco/org.project/org.project.DatabaseUtil.html" );
 if ( !databaseUtilReportFile.isFile() )
 {
     throw new FileNotFoundException( "DatabaseUtil should NOT be excluded: " + databaseUtilReportFile );
 }
 
-File testUtilReportFile = new File( basedir, "target/site/jacoco/org.project/TestUtil.html" );
+File testUtilReportFile = new File( basedir, "target/site/jacoco/org.project/org.project.TestUtil.html" );
 if ( testUtilReportFile.isFile() )
 {
     throw new RuntimeException( "TestUtil SHOULD be excluded: " + testUtilReportFile );

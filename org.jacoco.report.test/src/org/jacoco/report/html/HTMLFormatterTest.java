@@ -66,7 +66,7 @@ public class HTMLFormatterTest {
 		output.assertFile("index.html");
 		output.assertFile("bundle/index.html");
 		output.assertFile("bundle/org.jacoco.example/index.html");
-		output.assertFile("bundle/org.jacoco.example/FooClass.html");
+		output.assertFile("bundle/org.jacoco.example/org.jacoco.example.FooClass.html");
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class HTMLFormatterTest {
 		driver.sendBundle(formatter.createVisitor(output));
 		output.assertFile("index.html");
 		output.assertFile("org.jacoco.example/index.html");
-		output.assertFile("org.jacoco.example/FooClass.html");
+		output.assertFile("org.jacoco.example/org.jacoco.example.FooClass.html");
 	}
 
 	@Test

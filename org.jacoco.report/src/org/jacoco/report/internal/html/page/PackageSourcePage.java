@@ -77,9 +77,10 @@ public class PackageSourcePage extends TablePage<IPackageCoverage> {
 	}
 
 	private final void renderSourceFilePages() throws IOException {
-		final String packagename = getNode().getName();
 		for (final ISourceFileCoverage s : getNode().getSourceFiles()) {
+			final String packagename = s.getPackageName(); // get package name of item (not current package)
 			final String sourcename = s.getName();
+			final String sourceFileKey = packagename.replace('/', '.') + "." + sourcename;  // source file key
 			final Reader reader = locator
 					.getSourceFile(packagename, sourcename);
 			if (reader == null) {
@@ -88,7 +89,7 @@ public class PackageSourcePage extends TablePage<IPackageCoverage> {
 				final SourceFilePage sourcePage = new SourceFilePage(s, reader,
 						locator.getTabWidth(), this, folder, context);
 				sourcePage.render();
-				sourceFilePages.put(sourcename, sourcePage);
+				sourceFilePages.put(sourceFileKey, sourcePage);
 				addItem(sourcePage);
 			}
 
