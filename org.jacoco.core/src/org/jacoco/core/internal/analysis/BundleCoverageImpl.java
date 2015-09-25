@@ -104,7 +104,18 @@ public class BundleCoverageImpl extends CoverageNodeImpl implements
 			list = new ArrayList<T>();
 			map.put(name, list);
 		}
+		if (list.contains(value)){ // avoid duplicates
+			return;
+		}
 		list.add(value);
+
+		// include all parent packages
+		String local = name;
+		while (local.contains("/")){
+			final int pos = local.lastIndexOf('/');
+			local = pos == -1 ? "" : local.substring(0, pos);
+			addByName(map, local, value);
+		}
 	}
 
 	// === IBundleCoverage implementation ===

@@ -185,7 +185,9 @@ public class CoverageBuilderTest {
 		assertEquals("testbundle", bundle.getName());
 
 		final Collection<IPackageCoverage> packages = bundle.getPackages();
-		assertEquals(2, packages.size());
+
+		// include all parent packages
+		assertEquals(4, packages.size());
 		Map<String, IPackageCoverage> packagesByName = new HashMap<String, IPackageCoverage>();
 		for (IPackageCoverage p : packages) {
 			packagesByName.put(p.getName(), p);
